@@ -71,10 +71,10 @@ Extract C:\Users\rndd\.embedmongo\win32\mongodb-win32-x86_64-2.7.1.zip DONE
   "description" : "Description-Julia",
    "price" : 42.13,
    "imageUrl" :  "http://rian.com.br/imagem10.jpeg"
-
-  curl --location --request GET 'http://localhost:8080/product/show/{id}'
-
 }'
+
+curl --location --request GET 'http://localhost:8080/product/show/{id}'
+
  ```
 * Start o ProductRepositoryTests(Run AsJunitTest)
 
