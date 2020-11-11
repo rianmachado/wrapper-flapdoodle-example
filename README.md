@@ -11,7 +11,7 @@ Essa demo mostra como utilizar o wrapper-flapdoodle a partir do embedmongo-maven
 ## Testes sem conexão com a internet
 Para testar o start do mongo embedded sem uma conexão externa(internet) é necessário dois passos. Lembrando que a conexão externa permite fazer o download do binário do mongoDB e também baixar o wrapper responsável pelo start do banco em memória.
 
-* Descomente a tag <downloadPath> localizada dentro do POM(diretório raiz dessa demo) e informe qual URL da rede interna onde será feito download do binário do mongoDB
+* Descomente a tag `<downloadPath>` localizada dentro do POM(diretório raiz dessa demo) e informe qual URL da rede interna onde será feito download do binário do mongoDB
   
 * Instale o artefato embedmongo-maven-plugin em um storage location for software packages(exemplo Nexus). 
   - Para isso tenha localmente o projeto [<< embedmongo-maven-plugin >>](https://github.com/joelittlejohn/embedmongo-maven-plugin/blob/master/).
