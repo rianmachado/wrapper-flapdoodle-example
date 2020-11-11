@@ -76,7 +76,7 @@ Extract C:\Users\rndd\.embedmongo\win32\mongodb-win32-x86_64-2.7.1.zip DONE
 curl --location --request GET 'http://localhost:8080/product/show/{id}'
 
  ```
-* Start o ProductRepositoryTests(Run AsJunitTest)
+* Start o ProductRepositoryTests(Run As JunitTest)
 
 # Detalhes do embedmongo-maven-plugin 
 This plugin lets you start and stop an instance of MongoDB during a Maven build, e.g. for integration testing. The Mongo instance isn't strictly embedded (it's not running within the JVM of your application), but it is a managed instance that exists only for the lifetime of your build. [<< Leia Mais >>](https://github.com/joelittlejohn/embedmongo-maven-plugin/blob/master/README.md)
