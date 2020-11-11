@@ -1,4 +1,4 @@
-# wrapper-flapdoodle-example
+# Demo Spring Boot with wrapper for flapdoodle
 Maven plugin wrapper for the flapdoodle.de embedded MongoDB API.
 
 Essa demo mostra como utilizar o wrapper-flapdoodle a partir do embedmongo-maven-plugin. Para complemento da demo disponibilizamos também uma Api de produto para gravação e consulta de dados armazenados no mongo em memória. Você também poderá utilizar os teste de unidade para validar a persistência e leitura dos dados.
