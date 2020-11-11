@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.3.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<groupId>rian.poc</groupId>
+	<artifactId>demo-springboot-wrapper-flapdoodle</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>wrapper-flapdoodle-example</name>
+	<description>Maven plugin wrapper for the flapdoodle.de embedded MongoDB API.</description>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>11</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>start-embedmongo</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.joelittlejohn.embedmongo</groupId>
+						<artifactId>embedmongo-maven-plugin</artifactId>
+						<version>0.4.2</version>
+						<executions>
+							<execution>
+								<id>start</id>
+								<phase>compile</phase>
+								<goals>
+									<goal>start</goal>
+								</goals>
+								<configuration>
+									<port>27017</port>
+									<!-- optional, default 27017 -->
+
+									<version>2.7.1</version>
+									<!-- optional, defaults to latest production release -->
+
+									<databaseDirectory>/tmp/mongotest</databaseDirectory>
+									<!-- optional, default is a new dir in java.io.tmpdir -->
+
+									<artifactDirectory>/tmp/mongoartifact</artifactDirectory>
+									<!-- optional, set directory where MongoDB artifacts are stores, 
+										default is ~/.embedmongo -->
+
+									<logging>console</logging>
+									<!-- optional (file|console|none), default is console -->
+
+
+									<bindIp>127.0.0.1</bindIp>
+									<!-- optional, default is to listen on all interfaces -->
+
+									<!-- <downloadPath>http://localhost/</downloadPath> -->
+
+									<replSet>rs0</replSet>
+									<!-- optional, configures replication set, default is none -->
+
+									<oplogSize>1073741824</oplogSize>
+									<!-- optional, configures oplog size, default is automatically determined -->
+
+									<executableNaming>user</executableNaming>
+									<!-- optional (user|uuid), sets the executable naming style, default 
+										is uuid -->
+
+									<syncDelay>0</syncDelay>
+									<!-- optional, Sets the sync delay, 0 prevents all writing to disk, 
+										default lets MongoDB automatically determine value -->
+
+									<wait>true</wait>
+									<!-- optional, blocks indefinitely after the MongoDB instance starts, 
+										must be stopped with ctrl-c, default is false -->
+
+									<skip>false</skip>
+									<!-- optional, skips this plugin entirely, use on the command line 
+										like -Dmongodb.skip -->
+
+									<initializations>
+										<initialization>
+											<databaseName>embed-database</databaseName>
+										</initialization>
+									</initializations>
+								</configuration>
+							</execution>
+							<execution>
+								<id>stop</id>
+								<!-- <phase>post-integration-test</phase> -->
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+	</profiles>
+</project>
