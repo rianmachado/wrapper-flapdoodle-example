@@ -38,7 +38,7 @@ Para testar o start do mongo embedded sem uma conexão externa(internet) é nece
 		</repository>
 	</distributionManagement>
   ```
-  - Por fim rode o `mvn deploy` na raiz do projeto o qual requer o JAVA 8. Se tudo ocorrer bem você terá o embedmongo-maven-plugin disponível no seu Nexus local.
+  - Por fim rode o `mvn deploy` na raiz do projeto o qual requer JAVA 8. Se tudo ocorrer bem você terá o embedmongo-maven-plugin disponível no seu Nexus local.
   
 ## Executando o MongoDb embedded
    Vá até a raiz dessa demo(wrapper-flapdoodle-example) e execute `mvn compile -P start-embedmongo`. Caso o mongo seja iniciado com sucesso você terá uma saída parecida como isso:
