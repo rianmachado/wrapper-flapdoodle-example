@@ -1,5 +1,8 @@
 package rian.poc.demo.mongdbembedded.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,4 +60,16 @@ public class ProductController {
 		productService.delete(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+
+	@RequestMapping("/product/show/")
+	public ResponseEntity<List<ProductForm>> getProductAll() {
+		List<Product> products = productService.listAll();
+		List<ProductForm> all = new ArrayList<>();
+		for (Product product : products) {
+			ProductForm productForm = productToProductForm.convert(product);
+			all.add(productForm);
+		}
+		return ResponseEntity.ok(all);
+	}
+
 }
