@@ -27,15 +27,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
 
-			<plugin>
+ 			<plugin>
 				<groupId>com.github.joelittlejohn.embedmongo</groupId>
 				<artifactId>embedmongo-maven-plugin</artifactId>
-				<version>0.4.1</version>
+				<version>0.4.3-SNAPSHOT</version>
 				<executions>
 					<execution>
 						<id>start</id>
-						<phase>test-compile</phase>
 						<goals>
 							<goal>start</goal>
 						</goals>
@@ -46,7 +46,6 @@
 							<artifactDirectory>/tmp/mongoartifact</artifactDirectory>
 							<logging>console</logging>
 							<bindIp>127.0.0.1</bindIp>
-							<!-- <downloadPath>http://localhost/</downloadPath> -->
 							<oplogSize>1073741824</oplogSize>
 							<skip>false</skip>
 							<!-- optional, skips this plugin entirely, use on the command line 
@@ -55,6 +54,8 @@
 					</execution>
 				</executions>
 			</plugin>
+
+		
 
 		</plugins>
 	</build>
@@ -123,6 +124,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+<!--  		<dependency>
+			<groupId>de.flapdoodle.embed</groupId>
+			<artifactId>de.flapdoodle.embed.mongo</artifactId>
+			<version>1.50.6-SNAPSHOT</version>
+		</dependency> -->
+				
 	</dependencies>
 
 </project>
