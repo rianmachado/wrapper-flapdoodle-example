@@ -16,6 +16,7 @@ target/
 .pmd 
 .scannerwork
 .ruleset
+.DS_Store
 
 ### IntelliJ IDEA ###
 .idea

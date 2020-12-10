@@ -22,11 +22,12 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>com.github.rianmachado.embedmongo</groupId>
-				<artifactId>embedmongo-online-maven-plugin</artifactId>
+				<groupId>com.github.joelittlejohn.embedmongo</groupId>
+				<artifactId>embedmongo-offline-maven-plugin</artifactId>
 				<version>0.5.0</version>
 				<executions>
 					<execution>
+						<?m2e ignore?>
 						<id>start</id>
 						<goals>
 							<goal>start</goal>
@@ -37,7 +38,7 @@
 							<databaseDirectory>/tmp/mongotest</databaseDirectory>
 							<logging>console</logging>
 							<bindIp>127.0.0.1</bindIp>
-							<!-- <downloadPath>http://localhost/</downloadPath> -->
+							<!-- <downloadPath>https://rianvasconcelos.s3.amazonaws.com/</downloadPath> -->
 							<skip>false</skip>
 							<!-- optional, skips this plugin entirely, use on the command line 
 								like -Dmongodb.skip -->
