@@ -30,12 +30,11 @@
 
 			<plugin>
 				<groupId>com.github.joelittlejohn.embedmongo</groupId>
-				<artifactId>embedmongo-maven-plugin</artifactId>
-				<version>0.4.1</version>
+				<artifactId>embedmongo-online-maven-plugin</artifactId>
+				<version>0.5.0</version>
 				<executions>
 					<execution>
 						<id>start</id>
-						<phase>test-compile</phase>
 						<goals>
 							<goal>start</goal>
 						</goals>
@@ -46,7 +45,7 @@
 							<artifactDirectory>/tmp/mongoartifact</artifactDirectory>
 							<logging>console</logging>
 							<bindIp>127.0.0.1</bindIp>
-							<!-- <downloadPath>http://localhost/</downloadPath> -->
+							<downloadPath>http://localhost/</downloadPath>
 							<oplogSize>1073741824</oplogSize>
 							<skip>false</skip>
 							<!-- optional, skips this plugin entirely, use on the command line 
