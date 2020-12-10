@@ -30,14 +30,8 @@
 			
 
  			<plugin>
-				<groupId>com.github.joelittlejohn.embedmongo</groupId>
-<<<<<<< HEAD
 				<artifactId>embedmongo-online-maven-plugin</artifactId>
 				<version>0.5.0</version>
-=======
-				<artifactId>embedmongo-maven-plugin</artifactId>
-				<version>0.4.3-SNAPSHOT</version>
->>>>>>> 831f58e5e73b4b08c35e4a4dde9c619317f404c4
 				<executions>
 					<execution>
 						<id>start</id>
