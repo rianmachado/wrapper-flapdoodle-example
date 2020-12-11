@@ -9,7 +9,7 @@ Essa demo mostra como utilizar o wrapper-flapdoodle a partir do embedmongo-maven
 * Maven
 * Lombok
 
-## Sem conexão com a internet para download do binário(MongoDB)
+## Internet bloqueada para download do binário(MongoDB)
 Para start do mongo embedded sem uma conexão externa(internet) é necessário dois passos. Lembrando que a conexão externa permite fazer o download do binário do mongoDB.
 
 * Utilize a tag `<downloadPath>` localizada dentro do POM(diretório raiz dessa demo) e informe qual URL da rede interna onde será feito download do binário do mongoDB
@@ -41,7 +41,7 @@ Para start do mongo embedded sem uma conexão externa(internet) é necessário d
   ```
   - Por fim rode o `mvn deploy` na raiz do projeto o qual requer JAVA 8. Se tudo ocorrer bem você terá o embedmongo-maven-plugin disponível no seu Nexus local.
 
-## Example of using the plugin
+## Como usar o plugin
 ```xml
 	<plugin>
 				<groupId>com.github.joelittlejohn.embedmongo</groupId>
@@ -97,8 +97,8 @@ Extract C:\Users\rndd\.embedmongo\win32\mongodb-win32-x86_64-2.7.1.zip DONE
 [mongod output] 2020-11-11T16:44:50.137-0300 [initandlisten] git version: 11f6d56e9800f1a580b2260af0f051f847dd4431
 [mongod output] 2020-11-11T16:44:50.137-0300 [initandlisten] build info: windows sys.getwindowsversion(major=6, minor=1, build=7601, platform=2, service_pack='Service Pack 1') BOOST_LIB_VERSION=1_49
    ```
-## Notes
-* The embedmongo-offline-maven-plugin plugin makes it possible to work with the embedded MongoDB from a local directory. Remove the `<downloadPath>` tag in `pom.xml`. Go to https://github.com/rianmachado/embedmongo-offline-maven-plugin for information.  
+## Nota
+* O plug-in `embedmongo-offline-maven-plugin` torna possível trabalhar com o MongoDB integrado a partir de um diretório local. Remova a tag `<downloadPath>` no seu arquivo `pom.xml`. Acesse https://github.com/rianmachado/embedmongo-offline-maven-plugin para obter informações..  
 
 # Detalhes do embedmongo-maven-plugin (Aprofunde sua leitura) 
-This plugin lets you start and stop an instance of MongoDB during a Maven build, e.g. for integration testing. The Mongo instance isn't strictly embedded (it's not running within the JVM of your application), but it is a managed instance that exists only for the lifetime of your build. [<< Leia Mais >>](https://github.com/joelittlejohn/embedmongo-maven-plugin/blob/master/README.md)
+Este plug-in permite iniciar e interromper uma instância do MongoDB durante uma compilação do Maven, por exemplo, para teste de integração. A instância do Mongo não é estritamente integrada (não está em execução na JVM de seu aplicativo), mas é uma instância gerenciada que existe apenas durante o tempo de vida de sua construção. [<< Leia Mais >>](https://github.com/joelittlejohn/embedmongo-maven-plugin/blob/master/README.md)
