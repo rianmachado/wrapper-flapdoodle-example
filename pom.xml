@@ -23,12 +23,13 @@
 		<plugins>
 			<plugin>
 				<groupId>com.github.joelittlejohn.embedmongo</groupId>
-				<artifactId>embedmongo-offline-maven-plugin</artifactId>
-				<version>0.5.0</version>
+				<artifactId>embedmongo-maven-plugin</artifactId>
+				<version>0.4.1</version>
 				<executions>
 					<execution>
 						<?m2e ignore?>
 						<id>start</id>
+						<phase>test-compile</phase>
 						<goals>
 							<goal>start</goal>
 						</goals>
@@ -125,5 +126,46 @@
 		</dependency>
 
 	</dependencies>
-
+	<profiles>
+		<profile>
+			<id>mongo-demo</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.joelittlejohn.embedmongo</groupId>
+						<artifactId>embedmongo-maven-plugin</artifactId>
+						<version>0.4.1</version>
+						<executions>
+							<execution>
+								<?m2e ignore?>
+								<id>start</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>start</goal>
+								</goals>
+								<configuration>
+									<port>27017</port>
+									<version>2.7.1</version>
+									<databaseDirectory>/tmp/mongotest</databaseDirectory>
+									<logging>console</logging>
+									<bindIp>127.0.0.1</bindIp>
+									<!-- <downloadPath>https://rianvasconcelos.s3.amazonaws.com/</downloadPath> -->
+									<skip>false</skip>
+									<!-- optional, skips this plugin entirely, use on the command line 
+										like -Dmongodb.skip -->
+									<wait>true</wait>	
+								</configuration>
+							</execution>
+							<execution>
+								<id>stop</id>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
